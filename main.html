@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Словарь фразеологизмов русского языка</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <div>
+                        <div class="logo-text">Словарь фразеологизмов</div>
+                        <div class="logo-subtext">Русский язык для школы и ЕГЭ</div>
+                    </div>
+                </a>
+                
+                <div class="search-area">
+                    <input type="text" id="searchInput" placeholder="Найти фразеологизм...">
+                    <button class="search-btn" id="searchBtn">
+                        <i class="fas fa-search"></i> Найти
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <main class="container">
+        <div class="main-layout">
+           
+            <aside class="sidebar">
+                <h3>Алфавитный указатель</h3>
+                <div class="alphabet-nav" id="alphabetNav">
+                    
+                </div>
+                
+                <div class="stats">
+                    <p>Всего фразеологизмов: <span class="stats-number" id="totalPhrases">0</span></p>
+                    <p>На букву <span id="currentLetter">А</span>: <span class="stats-number" id="letterCount">0</span></p>
+                    <p>Источник: ФИПИ ЕГЭ 2024</p>
+                </div>
+                
+                <div style="margin-top: 20px;">
+                    <h4>Как пользоваться:</h4>
+                    <p style="font-size: 14px; margin-top: 10px;">Нажмите на букву для просмотра фразеологизмов или используйте поиск.</p>
+                </div>
+            </aside>
+            
+            
+            <div class="content">
+                <div class="content-header">
+                    <h1>Словарь фразеологизмов русского языка</h1>
+                    <p>Данный словарь содержит фразеологизмы, которые могут встретиться в заданиях ЕГЭ по русскому языку.</p>
+                    <p>Каждая словарная статья включает толкование значения фразеологизма и примеры употребления из художественной литературы.</p>
+                </div>
+                
+                
+                <div class="dictionary-section" id="phrasesList">
+                    <div class="section-header">
+                        <h2>Фразеологизмы на букву <span id="currentLetterTitle">А</span></h2>
+                        <div class="letter-count" id="currentLetterCount">0</div>
+                    </div>
+                    <div class="phrase-list" id="phrasesContainer">
+                        
+                    </div>
+                </div>
+                
+                
+                <div class="phrase-detail" id="phraseDetail">
+                   
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>О словаре</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Источники</a></li>
+                        <li><a href="#">Методика составления</a></li>
+                        <li><a href="#">Для преподавателей</a></li>
+                        <li><a href="#">Для учащихся</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Полезные ресурсы</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Подготовка к ЕГЭ</a></li>
+                        <li><a href="#">Грамматика русского языка</a></li>
+                        <li><a href="#">Онлайн-тесты</a></li>
+                        <li><a href="#">Библиотека</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Контакты</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Обратная связь</a></li>
+                        <li><a href="#">Вопросы и ответы</a></li>
+                        <li><a href="#">Техническая поддержка</a></li>
+                        <li><a href="#">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2024 Словарь фразеологизмов русского языка. Материалы подготовлены на основе сборника ФИПИ для ЕГЭ.
+            </div>
+        </div>
+    </footer>
+
+ <script src="main.js"></script>   
+</body>
+</html>
