@@ -1,4 +1,3 @@
-// Глобальные переменные
 let phrases = [];
 const alphabetNav = document.getElementById('alphabetNav');
 const phrasesContainer = document.getElementById('phrasesContainer');
@@ -15,7 +14,7 @@ const currentLetterCount = document.getElementById('currentLetterCount');
 let currentLetter = 'А';
 let filteredPhrases = [];
 
-// Загрузка данных из JSON
+
 async function loadPhrasesData() {
     try {
         const response = await fetch('phrases.json');
@@ -31,9 +30,9 @@ async function loadPhrasesData() {
     }
 }
 
-// Создание навигации по алфавиту
+
 function createAlphabetNav() {
-    // Получаем уникальные буквы из данных
+  
     const letters = [...new Set(phrases.map(phrase => phrase.letter))].sort();
     
     alphabetNav.innerHTML = '';
@@ -54,17 +53,17 @@ function createAlphabetNav() {
             currentLetter = letter;
             loadPhrasesByLetter(letter);
             
-            // Обновляем активную букву
+            
             document.querySelectorAll('.alphabet-letter').forEach(el => {
                 el.classList.remove('active');
             });
             letterElement.classList.add('active');
             
-            // Показываем список
+            
             phrasesList.classList.remove('hidden');
             phraseDetail.classList.add('hidden');
             
-            // Сбрасываем поиск
+            
             searchInput.value = '';
         });
         
@@ -72,21 +71,21 @@ function createAlphabetNav() {
     });
 }
 
-// Загрузка фразеологизмов по букве
+
 function loadPhrasesByLetter(letter) {
     filteredPhrases = phrases.filter(phrase => phrase.letter === letter);
     
-    // Обновляем статистику
+
     currentLetterElement.textContent = letter;
     currentLetterTitle.textContent = letter;
     letterCountElement.textContent = filteredPhrases.length;
     currentLetterCount.textContent = filteredPhrases.length;
     
-    // Отображаем фразеологизмы
+  
     displayPhrasesList(filteredPhrases);
 }
 
-// Отображение списка фразеологизмов
+
 function displayPhrasesList(phrasesToDisplay) {
     phrasesContainer.innerHTML = '';
     
@@ -115,29 +114,29 @@ function displayPhrasesList(phrasesToDisplay) {
     });
 }
 
-// ПРОСТОЙ ПОИСК
+
 function performSearch() {
     const searchTerm = searchInput.value.trim().toLowerCase();
     
     if (!searchTerm) {
-        // Если поле поиска пустое, возвращаемся к текущей букве
+        
         loadPhrasesByLetter(currentLetter);
         return;
     }
     
-    // Простой поиск по заголовку и значениям
+  
     filteredPhrases = phrases.filter(phrase => {
-        // Ищем в заголовке
+    
         if (phrase.title.toLowerCase().includes(searchTerm)) {
             return true;
         }
         
-        // Ищем в значениях
+        
         const foundInMeanings = phrase.meanings.some(meaning => 
             meaning.text.toLowerCase().includes(searchTerm)
         );
         
-        // Ищем в примерах
+     
         const foundInExamples = phrase.examples.some(example => 
             example.toLowerCase().includes(searchTerm)
         );
@@ -145,17 +144,17 @@ function performSearch() {
         return foundInMeanings || foundInExamples;
     });
     
-    // Обновляем интерфейс для поиска
+  
     currentLetterElement.textContent = 'поиск';
     currentLetterTitle.textContent = 'поиск';
     letterCountElement.textContent = filteredPhrases.length;
     currentLetterCount.textContent = filteredPhrases.length;
     
-    // Отображаем результаты
+    
     displaySearchResults(filteredPhrases, searchTerm);
 }
 
-// Отображение результатов поиска
+
 function displaySearchResults(results, searchTerm) {
     phrasesContainer.innerHTML = '';
     
@@ -174,7 +173,7 @@ function displaySearchResults(results, searchTerm) {
             phraseLink.href = '#';
             phraseLink.className = 'phrase-link';
             
-            // Выделяем найденный текст в заголовке
+          
             let highlightedTitle = phrase.title;
             const searchTermLower = searchTerm.toLowerCase();
             const titleLower = phrase.title.toLowerCase();
@@ -202,7 +201,7 @@ function displaySearchResults(results, searchTerm) {
             phrasesContainer.appendChild(phraseElement);
         });
         
-        // Добавляем информацию о поиске
+        
         const infoDiv = document.createElement('div');
         infoDiv.className = 'phrase-item';
         infoDiv.style.backgroundColor = '#f8f9fa';
@@ -215,10 +214,11 @@ function displaySearchResults(results, searchTerm) {
     
     phrasesList.classList.remove('hidden');
     phraseDetail.classList.add('hidden');
-    document.querySelector('.section-header h2').innerHTML = `Результаты поиска: <span id="currentLetterTitle">"${searchTerm}"</span>`;
+    document.querySelector('.section-header h2').innerHTML = `Результаты поиска: <span id="currentLetterTitle">"${searchTerm}"</span>`
+    
 }
 
-// Показ деталей фразеологизма
+
 function showPhraseDetail(phraseId) {
     const phrase = phrases.find(p => p.id === phraseId);
     
