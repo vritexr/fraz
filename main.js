@@ -214,7 +214,8 @@ function displaySearchResults(results, searchTerm) {
     
     phrasesList.classList.remove('hidden');
     phraseDetail.classList.add('hidden');
-    document.querySelector('.section-header h2').innerHTML = `Результаты поиска: <span id="currentLetterTitle">"${searchTerm}"</span>`
+    document.querySelector('.section-header h2').innerHTML = `Результаты поиска: <span id="currentLetterTitle"></span>`
+    
     
 }
 
@@ -300,3 +301,4 @@ function setupEventListeners() {
 document.addEventListener('DOMContentLoaded', () => {
     loadPhrasesData();
 });
+
